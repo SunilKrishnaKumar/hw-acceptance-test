@@ -24,9 +24,20 @@ Then /I should see all the movies/ do
   end
 end
 
-Then /^the director of "(.+)" should be "(.+)"/ do
-  movie = Movie.where(title: movie_name)
-  visit movie_path(movie)
-  expect(page.body).to match(/Director:\s#{director}/)
+Then /^the director of "(.+)" should be "(.+)"/ do |movie, director|
+  # movie = Movie.find_by(title: movie)
+  # puts(movie.director)
+  # # step %{I should see "#{movie.director}"}
+  # visit movie_path(movie)
+  # puts(movie_path(movie))
+  # puts(/Director:\s#{director}/)
+  # expect(page.body).to match(/Director:\s#{director}/)
+  if page.respond_to? :should
+    page.should have_content(movie)
+    page.should have_content(director)
+  else
+    assert page.has_content?(movie)
+    assert page.has_content?(director)
+  end
 end
 
