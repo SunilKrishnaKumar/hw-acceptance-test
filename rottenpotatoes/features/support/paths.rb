@@ -23,6 +23,9 @@ module NavigationHelpers
       movie_path(movie)
     when /^the Similar Movies page for "(.+)"/
       search_similar_movies_path($1)
+      
+    when /^the RottenPotatoes home page$/
+      movies_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
