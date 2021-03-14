@@ -59,10 +59,10 @@ class MoviesController < ApplicationController
   
   def search
     dir = Movie.find_by(title: params[:title]).director
-    @similar_movies = Movie.with_director(dir)
     # debugger
+    @similar_movies = Movie.with_director(dir)
     # @similar_movies = Movie.similar_movies(params[:title])
-    if @similar_movies.one?
+    if @similar_movies.nil?
       # debugger
       redirect_to root_url, alert: "'#{params[:title]}' has no director info"
     end
