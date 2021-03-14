@@ -1,0 +1,26 @@
+
+MoviesController
+  Search movies by the same director
+    should call Movie.with_director
+    should assign similar movies if director exists
+    should redirect to home page if director isn't known
+
+Movie
+  Movies with same director
+    When director exists
+      should call Movie.with_director
+    When director does not exists
+      should output nil
+  Movie.all_ratings
+G
+PG
+PG-13
+R
+    return all ratings
+
+2 deprecation warnings total
+
+Finished in 0.17802 seconds (files took 1.69 seconds to load)
+6 examples, 0 failures
+
+Coverage report generated for Cucumber Features, RSpec to /home/ec2-user/environment/hw-acceptance-test/rottenpotatoes/coverage. 49 / 57 LOC (85.96%) covered.
